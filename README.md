@@ -4,7 +4,7 @@ A simple Tic-Tac-Toe game built using React (Preact).
 
 ## Demo
 
-Live version: [https://example.com](https://example.com)
+Live version: [https://fair-quarter.surge.sh/](https://fair-quarter.surge.sh/)
 
 ## Features
 
