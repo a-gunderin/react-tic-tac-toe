@@ -1,5 +1,6 @@
 import { CurrentMoveIndicator } from "./CurrentMoveIndicator";
 import { MoveButton } from "./MoveButton";
+import { useTranslation } from "react-i18next";
 
 export const MoveList = ({
   history,
@@ -7,12 +8,15 @@ export const MoveList = ({
   setCurrentMove,
   isAscending,
 }) => {
+  const { t } = useTranslation();
   const moves = history.map((historyItem, index) => {
     const step = historyItem.find((i) => i?.step === index);
     const description =
       index > 0
-        ? `Go to move # ${index} (row: ${step?.row}, col: ${step?.col})`
-        : "Go to game start";
+        ? `${t("goToMove")} # ${index} (${t("row")}: ${step?.row}, ${t(
+            "col"
+          )}: ${step?.col})`
+        : t("goToGameStart");
 
     return (
       <div key={index}>

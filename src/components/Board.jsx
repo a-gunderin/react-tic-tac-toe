@@ -1,5 +1,6 @@
 import { calculateWinner, getColumn, getRow } from "../utils/utils";
 import { Square } from "./Square";
+import { useTranslation } from "react-i18next";
 
 export const Board = ({
   nextPlayerSign,
@@ -8,15 +9,16 @@ export const Board = ({
   isEndOfGame,
   step,
 }) => {
+  const { t } = useTranslation();
   const [[winner, winningLines] = [null, []]] = Object.entries(
     calculateWinner(squares)
   );
 
   const status = winner
-    ? `Winner: ${winner}`
+    ? `${t("winner")}: ${winner}`
     : isEndOfGame
-    ? `Draw`
-    : `Next player: ${nextPlayerSign}`;
+    ? t("draw")
+    : `${t("nextPlayer")}: ${nextPlayerSign}`;
 
   const handleClick = (i) => {
     if (squares[i] || winner) return;
@@ -34,7 +36,7 @@ export const Board = ({
     <>
       <div className="mb-2">{status}</div>
 
-      <div className="grid grid-cols-3 grid-rows-3 gap-0.5">
+      <div className="inline-grid grid-cols-3 grid-rows-3 gap-1">
         {Array(9)
           .fill(null)
           .map((_, index) => (

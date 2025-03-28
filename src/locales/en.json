@@ -10,5 +10,6 @@
   "row": "row",
   "col": "col",
   "winner": "Winner",
-  "draw": "Draw"
+  "draw": "Draw",
+  "youAreAtGameStart": "You are at the game start!"
 }

@@ -10,5 +10,6 @@
   "row": "fila",
   "col": "columna",
   "winner": "Ganador",
-  "draw": "Empate"
+  "draw": "Empate",
+  "youAreAtGameStart": "¡Estás en el inicio del juego!"
 }

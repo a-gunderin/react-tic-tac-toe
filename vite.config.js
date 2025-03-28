@@ -48,4 +48,9 @@ export default defineConfig({
       ],
     },
   },
+  server: {
+    fs: {
+      allow: ["src", "favicon", "node_modules"],
+    },
+  },
 });

@@ -2,8 +2,11 @@ import { useState } from "react";
 import { Board } from "./components/Board";
 import { buttonCls } from "./styles";
 import { MoveList } from "./components/Moves/MoveList";
+import { useTranslation } from "react-i18next";
 
 const Game = () => {
+  const { t, i18n } = useTranslation();
+  const [language, setLanguage] = useState(i18n.language);
   const [history, setHistory] = useState([Array(9).fill(null)]);
   const [currentMove, setCurrentMove] = useState(0);
   const [isAscending, setIsAscending] = useState(true);
@@ -16,21 +19,30 @@ const Game = () => {
     setCurrentMove(nextHistory.length - 1);
   };
 
+  const handleLanguageChange = (event) => {
+    const selectedLanguage = event.target.value;
+    i18n.changeLanguage(selectedLanguage);
+    setLanguage(selectedLanguage);
+    localStorage.setItem("i18nextLng", selectedLanguage);
+  };
+
   return (
     <div className="flex flex-wrap justify-center gap-7 mt-5">
       <div>
         <label className="flex items-center gap-2 mb-2">
-          <span className="cursor-pointer">Choose a language:</span>
+          <span className="cursor-pointer">{t("chooseLanguage")}:</span>
 
           <select
             name="lang"
             id="lang"
             className="border border-solid border-gray-400 p-1 cursor-pointer rounded"
+            value={language}
+            onChange={handleLanguageChange}
           >
-            <option value="eng">English</option>
+            <option value="en">English</option>
             <option value="ru">Русский</option>
-            <option value="ukr">Українська</option>
-            <option value="spa">Español</option>
+            <option value="uk">Українська</option>
+            <option value="es">Español</option>
           </select>
         </label>
 
@@ -43,13 +55,13 @@ const Game = () => {
         />
       </div>
 
-      <div className="min-w-64">
+      <div>
         <div className="flex gap-2 mb-2">
           <button
             onClick={() => setIsAscending(!isAscending)}
             className={buttonCls}
           >
-            Sort ⇵
+            {t("sort")} ⇵
           </button>
           <button
             onClick={() => {
@@ -58,7 +70,7 @@ const Game = () => {
             }}
             className={buttonCls}
           >
-            Clear history 🗑
+            {t("clearHistory")} 🗑
           </button>
         </div>
 
