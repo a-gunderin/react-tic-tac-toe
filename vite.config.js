@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import preact from "@preact/preset-vite";
 import htmlMinifier from "vite-plugin-html-minifier";
+import { viteStaticCopy } from "vite-plugin-static-copy";
 
 const htmlMinifierConfig = {
   minify: true,
@@ -15,6 +16,15 @@ const htmlMinifierConfig = {
   minifyJS: true,
 };
 
+const viteStaticCopyConfig = {
+  targets: [
+    {
+      src: "src/locales/*",
+      dest: "locales",
+    },
+  ],
+};
+
 export default defineConfig({
   resolve: {
     alias: {
@@ -23,7 +33,11 @@ export default defineConfig({
     },
   },
   base: "./",
-  plugins: [preact(), htmlMinifier(htmlMinifierConfig)],
+  plugins: [
+    viteStaticCopy(viteStaticCopyConfig),
+    preact(),
+    htmlMinifier(htmlMinifierConfig),
+  ],
   build: {
     target: "esnext",
     legacy: false,
