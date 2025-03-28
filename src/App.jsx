@@ -18,13 +18,30 @@ const Game = () => {
 
   return (
     <div className="flex flex-wrap justify-center gap-7 mt-5">
-      <Board
-        nextPlayerSign={nextPlayerSign}
-        squares={currentSquares}
-        onPlay={handlePlay}
-        isEndOfGame={currentMove === 9}
-        step={currentMove + 1}
-      />
+      <div>
+        <label className="flex items-center gap-2 mb-2">
+          <span className="cursor-pointer">Choose a language:</span>
+
+          <select
+            name="lang"
+            id="lang"
+            className="border border-solid border-gray-400 p-1 cursor-pointer rounded"
+          >
+            <option value="eng">English</option>
+            <option value="ru">Русский</option>
+            <option value="ukr">Українська</option>
+            <option value="spa">Español</option>
+          </select>
+        </label>
+
+        <Board
+          nextPlayerSign={nextPlayerSign}
+          squares={currentSquares}
+          onPlay={handlePlay}
+          isEndOfGame={currentMove === 9}
+          step={currentMove + 1}
+        />
+      </div>
 
       <div className="min-w-64">
         <div className="flex gap-2 mb-2">

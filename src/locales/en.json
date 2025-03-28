@@ -1,0 +1,14 @@
+{
+  "title": "Tic-Tac-Toe",
+  "chooseLanguage": "Choose a language",
+  "sort": "Sort",
+  "clearHistory": "Clear history",
+  "nextPlayer": "Next player",
+  "youAreAtMove": "You are at move",
+  "goToMove": "Go to move",
+  "goToGameStart": "Go to game start",
+  "row": "row",
+  "col": "col",
+  "winner": "Winner",
+  "draw": "Draw"
+}

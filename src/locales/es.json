@@ -1,0 +1,14 @@
+{
+  "title": "Tres en línea",
+  "chooseLanguage": "Elige un idioma",
+  "sort": "Ordenar",
+  "clearHistory": "Borrar historial",
+  "nextPlayer": "Siguiente jugador",
+  "youAreAtMove": "Estás en movimiento",
+  "goToMove": "Ir al movimiento",
+  "goToGameStart": "Ir al inicio del juego",
+  "row": "fila",
+  "col": "columna",
+  "winner": "Ganador",
+  "draw": "Empate"
+}

@@ -31,7 +31,7 @@ export const Board = ({
   };
 
   return (
-    <div>
+    <>
       <div className="mb-2">{status}</div>
 
       <div className="grid grid-cols-3 grid-rows-3 gap-0.5">
@@ -46,6 +46,6 @@ export const Board = ({
             />
           ))}
       </div>
-    </div>
+    </>
   );
 };
